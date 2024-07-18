@@ -1,0 +1,65 @@
+.header {
+  align-items:flex-end;
+  display: flex;
+  justify-content: space-between;
+
+  position: relative; /* Para facilitar o posicionamento */
+}
+.gravatar {
+  background-color: var(--secondary-text-color);
+  border-radius: 50%;
+  padding: 0.5em;
+}
+
+.logo {
+  width: 250px;
+}
+.userInfo {
+  background-image: url('../btn.png');
+  background-size: cover; /* Ajusta o tamanho da imagem */
+  background-position: center; /* Centraliza a imagem */
+  padding: 15px 100px; /* Ajuste o padding conforme necessário */
+  color: white; /* Cor do texto */
+  text-align: center; /* Centraliza o texto */
+  left: 88%;
+}
+
+p {
+  font-weight: bold;
+  font-size: x-large;
+}
+.userInfo {
+  background-color: #fff8e1; /* cor de fundo suave */
+  border-radius: 50px;
+  transition: transform 0.2s; /* animação suave */
+}
+
+.userInfo:hover {
+  transform: scale(1.05); /* efeito de hover */
+}
+
+
+.userInfo {
+  background-image: url('../btn.png');
+  background-size: cover;
+  background-position: center;
+  padding: 25px 100px;
+  color: white;
+  text-align: right; /* Alinhando o texto à direita */
+  position: relative; /* Necessário para posicionamento absoluto */
+}
+
+.headerScore {
+  position: absolute; /* Permite o posicionamento em relação ao container */
+  right: 30px; /* Ajuste conforme necessário */
+  bottom: 10px; /* Ajuste conforme necessário */
+}
+
+/* Media queries para dispositivos móveis */
+@media only screen and (max-width: 768px) {
+  .userInfo {
+    margin: 5px; /* Ajusta o padding para dispositivos móveis */
+    left: 95%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajusta a posição para centralização */
+  }
+}

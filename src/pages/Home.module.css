@@ -1,0 +1,28 @@
+.container {
+  background-image: url('../fundo.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Muda a direção para coluna em telas menores */
+  }
+
+  .logo {
+    width: 80%; /* Reduz a largura da logo */
+    height: auto; /* Mantém a proporção */
+  }
+
+  .button {
+    width: 120px; /* Ajusta a largura do botão */
+    height: 40px; /* Ajusta a altura do botão */
+  }
+}

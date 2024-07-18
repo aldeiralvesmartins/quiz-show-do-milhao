@@ -1,0 +1,64 @@
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  height: 100vh;
+  justify-content: center;
+  padding: 1em 0;
+}
+
+.title {
+  color: white;
+}
+
+.listContainer {
+  display: flex;
+  gap: 1em;
+  list-style: none;
+}
+
+.listItem {
+  align-items: center;
+  background-color: var(--primary-color);
+  border-radius: 0.25em;
+  color: var(--primary-text-color);
+  counter-increment: my-counter 1;
+  display: flex;
+  flex-direction: column;
+  padding: 2em 1em 1em;
+  position: relative;
+}
+
+.listItem:before {
+  content: counter(my-counter);
+  inset: 5px 45%;
+  position: absolute;
+}
+
+.listItem p {
+  margin-top: 0.5em;
+}
+
+.gravatar {
+  border-radius: 50%;
+}
+
+.playerName {
+  font-weight: 600;
+}
+
+/*.button {*/
+/*  background-color: var(--primary-color);*/
+/*  border: none;*/
+/*  border-radius: 0.25em;*/
+/*  color: var(--primary-text-color);*/
+/*  cursor: pointer;*/
+/*  font-size: 1.25em;*/
+/*  font-weight: 600;*/
+/*  padding: 0.5em 1em;*/
+/*}*/
+
+/*.button:hover {*/
+/*  background-color: var(--secondary-color);*/
+/*}*/

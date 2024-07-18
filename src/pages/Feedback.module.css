@@ -1,0 +1,61 @@
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 130px);
+  margin-top: 10em;
+}
+
+.feedbackCard {
+  align-items: center;
+  background-color: var(--primary-text-color);
+  border-radius: 0.25em;
+  color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  padding: 2em;
+}
+
+.title {
+  border-bottom: 2px solid var(--primary-color);
+  font-size: 2em;
+  margin-bottom: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.assertions:before {
+  content: 'Acertos: ';
+}
+
+.score:before {
+  content: 'Pontuação: ';
+}
+
+.feedbackText {
+  font-weight: 600;
+}
+
+.badScore {
+  color: rgb(160, 31, 31);
+}
+
+.buttonsContainer {
+  display: flex;
+  gap: 1em;
+  padding: 1em 0;
+}
+
+.button {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 0.25em;
+  color: var(--primary-text-color);
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0.5em 1em;
+}
+
+.button:hover {
+  background-color: var(--secondary-color);
+}

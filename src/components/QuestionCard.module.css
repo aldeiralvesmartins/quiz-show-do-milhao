@@ -1,0 +1,202 @@
+body, html {
+  background-color: #192aa3;
+  font-family: Jaldi, sans-serif;
+  margin: 0;
+  background-image: url('../bgGamer.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  height: calc(100vh - 85px);
+  justify-content: center;
+}
+
+.questionCard {
+  align-items: center;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1em;
+  height: 40vh;
+}
+.questionContainer {
+  display: flex;
+  flex-direction: column; /* Altera para coluna */
+  justify-content: center;
+  align-items: center; /* Centraliza horizontalmente */
+  width: 100vw;
+  position: relative;
+  margin: 0;
+}
+
+.questionBalloon {
+  position: relative;
+  background: #367DCC;
+  border-radius: 15px;
+  padding: 1.5em;
+  color: white;
+  max-width: 80%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.questionBalloon:after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  right: 20px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: #367DCC transparent transparent transparent;
+}
+
+.silvioImage {
+  margin-top: 10px; /* Espaço entre o balão e a imagem */
+  width: 215px; /* Ajuste o tamanho conforme necessário */
+  margin-left: 20rem; /* Move a imagem para a direita */
+}
+
+
+
+.answersContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.answerButton {
+  background: linear-gradient(45deg, #D24222, #E58534);
+  border: 2px solid #340d02;
+  border-radius: 40px;
+  color: var(--primary-text-color);
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  padding: 0.2em;
+  width: 500px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  justify-content: flex-start;
+}
+
+.answerButton:hover {
+  background: linear-gradient(45deg, #FF8C00, #FF4500);
+}
+
+.buttonCircle {
+  background-color: white;
+  border-radius: 50%;
+  color: black;
+  display: inline-block;
+  font-size: 1.5em; /* Ajuste o tamanho do círculo conforme necessário */
+  font-weight: bold;
+  height: 1.5em; /* Ajuste a altura do círculo conforme necessário */
+  line-height: 1.5em; /* Ajuste o alinhamento vertical */
+  margin-right: 6em; /* Espaço à direita do círculo dentro do botão */
+  margin-left: 0; /* Espaço à direita do círculo dentro do botão */
+  text-align: center;
+  width: 1.5em; /* Ajuste a largura do círculo conforme necessário */
+}
+
+
+
+.answerButton:disabled {
+  background-color: var(--secondary-text-color);
+  border: none;
+  cursor: auto;
+}
+
+.nextButton {
+  background: linear-gradient(45deg, #FF4500, #FF8C00);
+  border: none;
+  border-radius: 20px;
+  color: var(--primary-text-color);
+  cursor: pointer;
+  font-weight: 600;
+  padding: 1em 2em;
+  width: 250px;
+}
+
+.nextButton:hover {
+  background: linear-gradient(45deg, #FF8C00, #FF4500);
+}
+
+.noQuestions {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 130px);
+  justify-content: center;
+}
+
+.noQuestions p {
+  color: var(--primary-color);
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+.noQuestions a {
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  color: var(--primary-text-color);
+  font-weight: 600;
+  margin-top: 1em;
+  padding: 0.5em 1em;
+  text-decoration: none;
+}
+
+.noQuestions a:hover {
+  background-color: var(--secondary-color);
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+
+/* Media queries para dispositivos móveis */
+@media only screen and (max-width: 768px) {
+  body, html {
+    background-size: cover; /* Garante que a imagem cubra a tela em dispositivos móveis */
+    background-repeat: no-repeat; /* Garante que a imagem não se repita */
+  }
+
+  .container {
+    height: 100vh; /* Ajusta a altura para dispositivos móveis */
+
+  }
+
+  .answerButton, .nextButton {
+    width: 100vw; /* Define a largura do botão como 100% da largura da tela */
+    font-size: 1em; /* Ajusta o tamanho da fonte para dispositivos móveis */
+    padding: 0.2em; /* Ajusta o preenchimento interno do botão */
+    box-sizing: border-box; /* Garante que padding não incremente o tamanho do botão */
+    margin-left: 85px;
+  }
+
+  .buttonCircle {
+    font-size: 1em; /* Ajuste o tamanho do círculo para dispositivos móveis */
+    height: 2.5em; /* Ajuste a altura do círculo para dispositivos móveis */
+    line-height: 2.5em; /* Ajuste o alinhamento vertical para dispositivos móveis */
+    width: 2.5em; /* Ajuste a largura do círculo para dispositivos móveis */
+    margin-right: 4em; /* Espaço à direita do círculo dentro do botão para dispositivos móveis */
+  }
+
+  .nextButton {
+    font-weight: 600;
+    padding: 1rem;
+    width: 250px;
+  }
+
+}

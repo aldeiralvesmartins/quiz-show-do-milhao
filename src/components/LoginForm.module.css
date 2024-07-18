@@ -1,0 +1,38 @@
+
+
+.button {
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0.5em 1em;
+  width: 450px; /* Ajuste a largura conforme necessário */
+  height: 150px; /* Ajuste a altura conforme necessário */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 90%;
+  background: none;
+  border: none;
+  padding: 0;
+  transition: background 0.3s, transform 0.2s; /* Efeito de transição */
+  border-radius: 0%;
+ 
+}
+
+.button:hover {
+ 
+
+  transform: translateY(-8px); /* Levantar o botão */
+}
+
+.button:active {
+  transform: translateY(0); /* Efeito de pressionar */
+
+}
+
+
+.buttonImage {
+  width: 100%; /* Ajuste conforme necessário */
+  height: auto;
+}
+
+

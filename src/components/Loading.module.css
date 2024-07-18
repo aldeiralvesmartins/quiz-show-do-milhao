@@ -1,0 +1,12 @@
+.loadingContainer {
+  align-items: center;
+  display: flex;
+  height: calc(100vh - 100px);
+  justify-content: center;
+  width: 100vw;
+}
+
+.loading {
+  width: 100px;  /* Ajuste conforme necessário */
+  height: 100px; /* Ajuste conforme necessário */
+}

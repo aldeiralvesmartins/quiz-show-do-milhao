@@ -1,0 +1,65 @@
+{
+  "response_code": 0,
+  "results": [
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Geografia",
+      "question": "Qual é a capital do Brasil?",
+      "correct_answer": "Brasília",
+      "incorrect_answers": [
+        "Rio de Janeiro",
+        "São Paulo",
+        "Salvador"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Ciência",
+      "question": "Qual é o elemento químico representado pela sigla 'O'?",
+      "correct_answer": "Oxigênio",
+      "incorrect_answers": [
+        "Ouro",
+        "Osmio",
+        "Óxido"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "História",
+      "question": "Quem descobriu o Brasil em 1500?",
+      "correct_answer": "Pedro Álvares Cabral",
+      "incorrect_answers": [
+        "Cristóvão Colombo",
+        "Vasco da Gama",
+        "Fernão de Magalhães"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Entretenimento: Filmes",
+      "question": "Quem é o personagem principal da série de filmes 'Harry Potter'?",
+      "correct_answer": "Harry Potter",
+      "incorrect_answers": [
+        "Hermione Granger",
+        "Ron Weasley",
+        "Albus Dumbledore"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Geografia",
+      "question": "Qual é o maior país da América do Sul?",
+      "correct_answer": "Brasil",
+      "incorrect_answers": [
+        "Argentina",
+        "Colômbia",
+        "Venezuela"
+      ]
+    }
+  ]
+}
