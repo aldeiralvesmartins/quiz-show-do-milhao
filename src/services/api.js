@@ -6,7 +6,7 @@ export const fetchToken = async () => {
 };
 
 export const fetchQuestions = async () => {
-  const endpoint = 'http://localhost:3000/perguntas.json';
+  const endpoint = 'https://quiz-show-do-milhao-7ta86kbi0-aldeirs-projects-6e60d301.vercel.app/perguntas.json';
   const response = await fetch(endpoint);
   const data = await response.json();
   return data.results;
