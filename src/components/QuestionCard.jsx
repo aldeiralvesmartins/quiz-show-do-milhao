@@ -13,8 +13,11 @@ import style from './QuestionCard.module.css';
 import certaRespostaAudio from '../certa-resposta.wav';
 import dinheiro from '../DINHEIRO.WAV';
 import quePenaAudio from '../que-pena.wav';
+import okParouAudio from '../ok-parou.wav';
+import tempoAcabouAudio from '../ah-nao-da-mais-nao-tempo-acabou.wav'; // Ensure the file path is correct
 
-const baseScore = 10;
+
+const baseScore = 10; // Definição de baseScore
 
 class QuestionCard extends React.Component {
   constructor(props) {
@@ -22,23 +25,28 @@ class QuestionCard extends React.Component {
 
     this.state = {
       disableButtons: false,
-      nexButtonVisible: false,
+      nextButtonVisible: false,
     };
 
     this.audioRef = React.createRef();
+    this.audioCertaRespostaRef = React.createRef();
+    this.audioDinheiroRef = React.createRef();
+    this.audioQuePenaRef = React.createRef();
+    this.audioOkParouRef = React.createRef();
+    this.audioTempoAcabouRef = React.createRef(); // Ref for the new audio
+
 
     this.toggleDisableButtons = this.toggleDisableButtons.bind(this);
     this.handleNextQuestion = this.handleNextQuestion.bind(this);
     this.handleQuestionAnswered = this.handleQuestionAnswered.bind(this);
-
-    // Refs para os elementos de áudio
-    this.audioCertaRespostaRef = React.createRef();
-    this.audioDinheiroRef = React.createRef();
-    this.audioQuePenaRef = React.createRef();
+    this.handleStopGame = this.handleStopGame.bind(this);
+    this.handleTimeUp = this.handleTimeUp.bind(this);
   }
 
   componentDidMount() {
-    this.audioRef.current.play();
+    if (this.audioRef.current) {
+      this.audioRef.current.play();
+    }
   }
 
   componentWillUnmount() {
@@ -67,7 +75,7 @@ class QuestionCard extends React.Component {
 
   toggleDisableButtons() {
     this.setState((prevState) => ({
-      // disableButtons: !prevState.disableButtons,
+      disableButtons: !prevState.disableButtons,
     }));
   }
 
@@ -97,11 +105,43 @@ class QuestionCard extends React.Component {
     } else {
       dispatchNextQuestion();
       this.resetColor();
-      this.toggleNextButtonVisibility();
+      this.setState({ disableButtons: false, nextButtonVisible: false });
     }
 
-    this.toggleDisableButtons();
     dispatchResetTimer();
+  }
+
+  handleStopGame() {
+    const { history } = this.props;
+
+    if (this.audioOkParouRef.current) {
+      this.audioOkParouRef.current.addEventListener('ended', () => {
+        history.push('/feedback');
+      });
+
+      this.audioOkParouRef.current.play().catch(error => console.error('Error playing audio:', error));
+    } else {
+      history.push('/feedback');
+    }
+  }
+
+  handleTimeUp() {
+    const { history } = this.props;
+
+    // Verifique se o elemento de áudio está disponível
+    if (this.audioTempoAcabouRef.current) {
+      // Adicione um listener para o evento 'ended' do áudio
+      this.audioTempoAcabouRef.current.addEventListener('ended', () => {
+        // Redireciona para a tela de feedback após o áudio ter terminado de tocar
+        history.push('/feedback');
+      });
+
+      // Inicia a reprodução do áudio
+      this.audioTempoAcabouRef.current.play().catch(error => console.error('Error playing audio:', error));
+    } else {
+      // Se o áudio não estiver disponível, redireciona imediatamente
+      history.push('/feedback');
+    }
   }
 
   changeColor({ target }, index) {
@@ -111,9 +151,7 @@ class QuestionCard extends React.Component {
       if (i === index) {
         if (getButtons[i].dataset.testid === 'correct-answer') {
           getButtons[i].classList.add(style.correct);
-          // Reproduz o áudio de resposta correta
           this.audioDinheiroRef.current.play();
-
 
           setTimeout(() => {
             this.audioCertaRespostaRef.current.play();
@@ -121,30 +159,39 @@ class QuestionCard extends React.Component {
 
         } else {
           getButtons[i].classList.add(style.incorrect);
-          // Reproduz o áudio de resposta incorreta
           this.audioQuePenaRef.current.play();
         }
       }
     }
   }
 
-  toggleNextButtonVisibility() {
-    this.setState((prevState) => ({
-      nexButtonVisible: !prevState.nexButtonVisible,
-    }));
-  }
-
   handleQuestionAnswered(event, index) {
-    const { dispatchStopTimer } = this.props;
+    const { dispatchStopTimer, history } = this.props;
 
     this.changeColor(event, index);
-    this.toggleNextButtonVisibility();
+    this.setState({ disableButtons: true, nextButtonVisible: true });
 
     if (event.target.dataset.testid === 'correct-answer') {
       this.setScore();
+      setTimeout(this.handleNextQuestion, 3000);
+    } else {
+      setTimeout(() => {
+        history.push('/feedback');
+      }, 3000);
     }
 
     dispatchStopTimer();
+  }
+
+  calculateScore() {
+    const { question, timer } = this.props;
+    const difficultyScore = {
+      easy: 1,
+      medium: 2,
+      hard: 3,
+    };
+
+    return baseScore + (timer * difficultyScore[question.difficulty]);
   }
 
   renderAnswers() {
@@ -170,7 +217,9 @@ class QuestionCard extends React.Component {
 
   render() {
     const { question, isLoading, error } = this.props;
-    const { nexButtonVisible } = this.state;
+    const { nextButtonVisible } = this.state;
+    const currentScore = this.calculateScore();
+    const nextQuestionScore = currentScore + baseScore;
 
     if (isLoading) return <Loading />;
     if (error) return <p>{error.message}</p>;
@@ -196,27 +245,46 @@ class QuestionCard extends React.Component {
             />
           </section>
 
-          {/* Áudio de resposta correta */}
           <audio ref={this.audioCertaRespostaRef} src={certaRespostaAudio}/>
           <audio ref={this.audioDinheiroRef} src={dinheiro}/>
-          {/* Áudio de resposta incorreta */}
           <audio ref={this.audioQuePenaRef} src={quePenaAudio}/>
+          <audio ref={this.audioOkParouRef} src={okParouAudio}/>
+          {/* Nova linha */}
+          <audio ref={this.audioTempoAcabouRef} src={tempoAcabouAudio}/>
+          {/* Add this line */}
 
-          <Timer toggleDisableButtons={this.toggleDisableButtons}/>
+
+          <Timer toggleDisableButtons={this.toggleDisableButtons} onTimeUp={this.handleTimeUp}/>
 
           <section className={style.questionCard}>
             {this.renderAnswers()}
           </section>
 
-          <button
-              className={style.nextButton}
-              type="button"
-              onClick={this.handleNextQuestion}
-              hidden={!nexButtonVisible}
-              data-testid="btn-next"
-          >
-            Próxima
-          </button>
+          <section className={style.buttonsContainer}>
+            <button
+                className={style.next1Button}
+                type="button"
+                data-testid="btn-current-points"
+            >
+              Errar: {currentScore}
+            </button>
+            <button
+                className={style.next1Button}
+                type="button"
+                onClick={this.handleStopGame}
+                data-testid="btn-stop"
+            >
+              Parar
+            </button>
+            <button
+                className={style.next1Button}
+                type="button"
+                data-testid="btn-next-points"
+            >
+              Acertar: {nextQuestionScore}
+            </button>
+          </section>
+
           <audio
               ref={this.audioRef}
               src={require('../suspense.wav')}
@@ -230,8 +298,8 @@ class QuestionCard extends React.Component {
 
 const mapStateToProps = ({
                            gameReducer: {questions, question, isLoading, error},
-                           playerReducer: { gravatar },
-                           timerReducer: { timer },
+                           playerReducer: {gravatar},
+                           timerReducer: {timer},
                          }) => ({
   questions,
   question,

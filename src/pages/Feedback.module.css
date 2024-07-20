@@ -2,15 +2,17 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 130px);
+  height: calc(100vh - 35px);
   margin-top: 10em;
 }
 
 .feedbackCard {
   align-items: center;
-  background-color: var(--primary-text-color);
+  background-image: url('../jequit4.png');
+  background-size: cover;
+  background-position: center;
   border-radius: 0.25em;
-  color: var(--primary-color);
+  color: #72246c;
   display: flex;
   flex-direction: column;
   gap: 0.5em;
@@ -18,7 +20,7 @@
 }
 
 .title {
-  border-bottom: 2px solid var(--primary-color);
+  border-bottom: 2px solid #72246c;
   font-size: 2em;
   margin-bottom: 0.5em;
   padding-bottom: 0.5em;
@@ -46,16 +48,58 @@
   padding: 1em 0;
 }
 
+
 .button {
-  background-color: var(--primary-color);
+  background-color: #72246c;
   border: none;
-  border-radius: 0.25em;
-  color: var(--primary-text-color);
+  border-radius: 0.5em;
+  color: white;
   cursor: pointer;
   font-weight: 600;
   padding: 0.5em 1em;
+  width: 120px; /* Fixed width for the buttons */
+  transition: transform 0.3s ease-in-out;
+  text-decoration: none;
+}
+
+.timer {
+  font-weight: 600;
+  color: #d9534f; /* Cor de destaque para o temporizador */
+  margin-bottom: 0.5em;
 }
 
 .button:hover {
-  background-color: var(--secondary-color);
+  background-color: #91318a;
+}
+
+.pulsingButton {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.h1i {
+  height: 95px;
+}
+
+
+/* Media queries para dispositivos móveis */
+@media only screen and (max-width: 768px) {
+  .container {
+    margin-right: -85px;
+  }
+
+  .feedbackCard {
+    background-image: url('../jequit2.png');
+  }
 }

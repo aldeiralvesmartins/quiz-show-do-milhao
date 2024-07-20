@@ -2,9 +2,10 @@ body, html {
   background-color: #192aa3;
   font-family: Jaldi, sans-serif;
   margin: 0;
+  padding: 0;
   background-image: url('../bgGamer.webp');
   background-size: cover;
-  background-position: center;
+  /*background-position: center;*/
 }
 
 .container {
@@ -157,12 +158,32 @@ body, html {
   background-color: var(--secondary-color);
 }
 
-.buttonContainer {
+
+
+
+
+
+.buttonsContainer {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  margin: 20px;
 }
+
+
+.next1Button {
+    background: linear-gradient(45deg, #FF4500, #FF8C00);
+    border: none;
+    border-radius: 8px;
+    color: var(--primary-text-color);
+    cursor: pointer;
+    font-weight: 700;
+    padding: 1em 2em;
+    width: 200px;
+  margin: 5px;
+}
+
+
+
 
 
 /* Media queries para dispositivos móveis */
@@ -200,4 +221,21 @@ body, html {
     width: 250px;
   }
 
+  .next1Button {
+    background: linear-gradient(45deg, #FF4500, #FF8C00);
+    border: none;
+    border-radius: 8px;
+    color: var(--primary-text-color);
+    cursor: pointer;
+    font-weight: 700;
+    padding: 1em 1em;
+    width: 150px;
+    margin: 5px;
+  }
+  .buttonsContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: -85px;
+  }
 }

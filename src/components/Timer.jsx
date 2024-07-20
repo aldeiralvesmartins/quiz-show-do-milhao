@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { resetTimer, updateTimer } from '../actions';
 import style from './Timer.module.css';
+import timeUpAudio from '../certa-resposta.wav'; // Import audio file
 
 const interval = 1000;
 const maxTime = 30;
@@ -10,19 +11,24 @@ const ten = 10;
 const timeEnding = 30;
 
 class Timer extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       timerReference: null,
     };
+
+    this.audioTimeUpRef = React.createRef(); // Create a ref for the time-up audio
   }
 
   componentDidMount() {
     this.timerControl();
+    this.audioTimeUpRef.current.addEventListener('error', (e) => {
+      console.error('Error loading audio:', e);
+    });
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
     const { timer, timerStopped } = this.props;
     const { timerReference } = this.state;
 
@@ -33,6 +39,11 @@ class Timer extends React.Component {
     if (timer === maxTime && !timerStopped && !timerReference) {
       this.timerControl();
     }
+
+    // Check if the time has reached zero to trigger time up action
+    if (timer === 0 && !prevProps.timerStopped) {
+      this.handleTimeUp();
+    }
   }
 
   componentWillUnmount() {
@@ -42,12 +53,10 @@ class Timer extends React.Component {
   }
 
   timerControl() {
-    const {
-      dispatchtUpdateTimer, dispatchResetTimer,
-    } = this.props;
+    const { dispatchUpdateTimer, dispatchResetTimer } = this.props;
 
     const reference = setInterval(() => {
-      dispatchtUpdateTimer();
+      dispatchUpdateTimer();
     }, interval);
 
     dispatchResetTimer();
@@ -68,6 +77,19 @@ class Timer extends React.Component {
     this.setState({
       timerReference: null,
     });
+  }
+
+  handleTimeUp() {
+    const { onTimeUp } = this.props;
+    if (onTimeUp) {
+      onTimeUp(); // Trigger the callback when time is up
+    }
+    const audio = this.audioTimeUpRef.current;
+    if (audio) {
+      audio.oncanplaythrough = () => {
+        audio.play(); // Play the time-up audio when it's ready
+      };
+    }
   }
 
   render() {
@@ -96,24 +118,27 @@ class Timer extends React.Component {
               </text>
             </svg>
           </div>
+          {/* Time-up audio */}
+          <audio ref={this.audioTimeUpRef} src={timeUpAudio} />
         </div>
     );
   }
 }
 
-const mapStateToProps = ({ timerReducer: { timer, timerReference, timerStopped } }) => ({
+const mapStateToProps = ({ timerReducer: { timer, timerStopped } }) => ({
   timer,
-  timerReference,
   timerStopped,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  dispatchtUpdateTimer: () => dispatch(updateTimer()),
+  dispatchUpdateTimer: () => dispatch(updateTimer()),
   dispatchResetTimer: () => dispatch(resetTimer()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Timer);
-
 Timer.propTypes = {
-  toggleDisableButtons: PropTypes.func,
-}.isRequired;
+  toggleDisableButtons: PropTypes.func.isRequired,
+  onTimeUp: PropTypes.func,
+  timer: PropTypes.number.isRequired,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Timer);
