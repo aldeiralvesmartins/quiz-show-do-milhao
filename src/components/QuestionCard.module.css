@@ -168,8 +168,9 @@ body, html {
 /* Media queries para dispositivos móveis */
 @media only screen and (max-width: 768px) {
   body, html {
-    background-size: cover; /* Garante que a imagem cubra a tela em dispositivos móveis */
-    background-repeat: no-repeat; /* Garante que a imagem não se repita */
+    background-image: url('../bgGamerMobile.png');
+    /*background-size: cover; !* Garante que a imagem cubra a tela em dispositivos móveis *!*/
+    /*background-repeat: no-repeat; !* Garante que a imagem não se repita *!*/
   }
 
   .container {

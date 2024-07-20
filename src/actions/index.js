@@ -73,8 +73,9 @@ export const updateType = (payload) => ({
 
 export const fetchQuestions = () => (dispatch) => {
   dispatch(getQuestions());
-  const baseEndpoint = 'http://localhost:3000/perguntas.json';
-  return fetch(baseEndpoint)
+  const apiUrl = `${window.location.origin}/`;
+  const endpoint = `${apiUrl}/perguntas.json`;
+  return fetch(endpoint)
       .then((response) => response.json())
       .then(
           (data) => {
