@@ -14,10 +14,9 @@ import certaRespostaAudio from '../certa-resposta.wav';
 import dinheiro from '../DINHEIRO.WAV';
 import quePenaAudio from '../que-pena.wav';
 import okParouAudio from '../ok-parou.wav';
-import tempoAcabouAudio from '../ah-nao-da-mais-nao-tempo-acabou.wav'; // Ensure the file path is correct
+import tempoAcabouAudio from '../ah-nao-da-mais-nao-tempo-acabou.wav';
 
-
-const baseScore = 10; // Definição de baseScore
+const baseScore = 100;
 
 class QuestionCard extends React.Component {
   constructor(props) {
@@ -26,6 +25,7 @@ class QuestionCard extends React.Component {
     this.state = {
       disableButtons: false,
       nextButtonVisible: false,
+      answeredCorrectly: false,
     };
 
     this.audioRef = React.createRef();
@@ -33,8 +33,7 @@ class QuestionCard extends React.Component {
     this.audioDinheiroRef = React.createRef();
     this.audioQuePenaRef = React.createRef();
     this.audioOkParouRef = React.createRef();
-    this.audioTempoAcabouRef = React.createRef(); // Ref for the new audio
-
+    this.audioTempoAcabouRef = React.createRef();
 
     this.toggleDisableButtons = this.toggleDisableButtons.bind(this);
     this.handleNextQuestion = this.handleNextQuestion.bind(this);
@@ -127,19 +126,12 @@ class QuestionCard extends React.Component {
 
   handleTimeUp() {
     const { history } = this.props;
-
-    // Verifique se o elemento de áudio está disponível
     if (this.audioTempoAcabouRef.current) {
-      // Adicione um listener para o evento 'ended' do áudio
       this.audioTempoAcabouRef.current.addEventListener('ended', () => {
-        // Redireciona para a tela de feedback após o áudio ter terminado de tocar
         history.push('/feedback');
       });
-
-      // Inicia a reprodução do áudio
       this.audioTempoAcabouRef.current.play().catch(error => console.error('Error playing audio:', error));
     } else {
-      // Se o áudio não estiver disponível, redireciona imediatamente
       history.push('/feedback');
     }
   }
@@ -152,11 +144,9 @@ class QuestionCard extends React.Component {
         if (getButtons[i].dataset.testid === 'correct-answer') {
           getButtons[i].classList.add(style.correct);
           this.audioDinheiroRef.current.play();
-
           setTimeout(() => {
             this.audioCertaRespostaRef.current.play();
           }, 1000);
-
         } else {
           getButtons[i].classList.add(style.incorrect);
           this.audioQuePenaRef.current.play();
@@ -167,12 +157,11 @@ class QuestionCard extends React.Component {
 
   handleQuestionAnswered(event, index) {
     const { dispatchStopTimer, history } = this.props;
-
     this.changeColor(event, index);
     this.setState({ disableButtons: true, nextButtonVisible: true });
-
     if (event.target.dataset.testid === 'correct-answer') {
       this.setScore();
+      this.setState({ answeredCorrectly: true });
       setTimeout(this.handleNextQuestion, 3000);
     } else {
       setTimeout(() => {
@@ -190,14 +179,12 @@ class QuestionCard extends React.Component {
       medium: 2,
       hard: 3,
     };
-
     return baseScore + (timer * difficultyScore[question.difficulty]);
   }
 
   renderAnswers() {
     const { question } = this.props;
     const { disableButtons } = this.state;
-
     return (
         <section className={style.answersContainer}>
           {question.type === 'boolean' ? (
@@ -217,7 +204,7 @@ class QuestionCard extends React.Component {
 
   render() {
     const { question, isLoading, error } = this.props;
-    const { nextButtonVisible } = this.state;
+    const { nextButtonVisible, answeredCorrectly } = this.state;
     const currentScore = this.calculateScore();
     const nextQuestionScore = currentScore + baseScore;
 
@@ -249,10 +236,7 @@ class QuestionCard extends React.Component {
           <audio ref={this.audioDinheiroRef} src={dinheiro}/>
           <audio ref={this.audioQuePenaRef} src={quePenaAudio}/>
           <audio ref={this.audioOkParouRef} src={okParouAudio}/>
-          {/* Nova linha */}
           <audio ref={this.audioTempoAcabouRef} src={tempoAcabouAudio}/>
-          {/* Add this line */}
-
 
           <Timer toggleDisableButtons={this.toggleDisableButtons} onTimeUp={this.handleTimeUp}/>
 
@@ -266,13 +250,14 @@ class QuestionCard extends React.Component {
                 type="button"
                 data-testid="btn-current-points"
             >
-              Errar: {currentScore}
+              Errar: R$ {currentScore}
             </button>
             <button
                 className={style.next1Button}
                 type="button"
                 onClick={this.handleStopGame}
                 data-testid="btn-stop"
+                disabled={!answeredCorrectly}
             >
               Parar
             </button>
@@ -281,7 +266,7 @@ class QuestionCard extends React.Component {
                 type="button"
                 data-testid="btn-next-points"
             >
-              Acertar: {nextQuestionScore}
+              Acertar: R$ {nextQuestionScore}
             </button>
           </section>
 
@@ -301,21 +286,51 @@ const mapStateToProps = ({
                            playerReducer: {gravatar},
                            timerReducer: {timer},
                          }) => ({
-  questions,
-  question,
-  isLoading,
-  error,
-  gravatar,
-  timer,
+  questions, question, isLoading, error, gravatar, timer,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   dispatchNextQuestion: () => dispatch(nextQuestion()),
-  dispatchResetTimer: () => dispatch(resetTimer()),
-  dispatchUpdateScore: (score) => dispatch(updateScore(score)),
-  dispatchStopTimer: () => dispatch(stopTimer()),
   dispatchResetQuestions: () => dispatch(resetQuestions()),
+  dispatchResetTimer: () => dispatch(resetTimer()),
+  dispatchStopTimer: () => dispatch(stopTimer()),
+  dispatchUpdateScore: (score) => dispatch(updateScore(score)),
 });
+
+QuestionCard.propTypes = {
+  dispatchNextQuestion: PropTypes.func.isRequired,
+  dispatchResetQuestions: PropTypes.func.isRequired,
+  dispatchResetTimer: PropTypes.func.isRequired,
+  dispatchStopTimer: PropTypes.func.isRequired,
+  dispatchUpdateScore: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  error: PropTypes.shape({
+    message: PropTypes.string.isRequired,
+  }),
+  question: PropTypes.shape({
+    question: PropTypes.string.isRequired,
+    difficulty: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+  }),
+  questions: PropTypes.arrayOf(PropTypes.shape({
+    category: PropTypes.string.isRequired,
+    correct_answer: PropTypes.string.isRequired,
+    difficulty: PropTypes.string.isRequired,
+    incorrect_answers: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+    question: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+  })).isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+  gravatar: PropTypes.string.isRequired,
+  timer: PropTypes.number.isRequired,
+};
+
+QuestionCard.defaultProps = {
+  question: null,
+  error: null,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(QuestionCard);
 

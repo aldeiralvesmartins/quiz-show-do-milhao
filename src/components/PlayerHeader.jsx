@@ -8,11 +8,11 @@ class PlayerHeader extends React.Component {
     const { score } = this.props;
 
     return (
-      <header className={style.header}>
-        <section className={style.userInfo}>
-          <p className={style.headerScore} data-testid="header-score">{score}</p>
-        </section>
-      </header>
+      <div className={style.header}>
+        <div className={style.userInfo}>
+          <p className={style.headerScore} data-testid="header-score">R$ {score}</p>
+        </div>
+      </div>
     );
   }
 }

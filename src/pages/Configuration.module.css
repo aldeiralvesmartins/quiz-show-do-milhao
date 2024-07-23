@@ -1,60 +1,60 @@
-.container {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  height: 80vh;
-  justify-content: center;
-}
+/*.container {*/
+/*  align-items: center;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  gap: 1em;*/
+/*  height: 80vh;*/
+/*  justify-content: center;*/
+/*}*/
 
-.container a {
-  background-color: var(--primary-color);
-  border-radius: 0.25em;
-  color: var(--primary-text-color);
-  font-weight: 600;
-  padding: 0.5em 1em;
-  text-decoration: none;
-}
+/*.container a {*/
+/*  background-color: var(--primary-color);*/
+/*  border-radius: 0.25em;*/
+/*  color: var(--primary-text-color);*/
+/*  font-weight: 600;*/
+/*  padding: 0.5em 1em;*/
+/*  text-decoration: none;*/
+/*}*/
 
-.container a:hover {
-  background-color: var(--secondary-color);
-}
+/*.container a:hover {*/
+/*  background-color: var(--secondary-color);*/
+/*}*/
 
-.title {
-  color: var(--primary-color);
-}
+/*.title {*/
+/*  color: var(--primary-color);*/
+/*}*/
 
-.selectContainer {
-  background-color: var(--primary-color);
-  border-radius: 0.25em;
-  color: var(--primary-text-color);
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  padding: 2em;
-}
+/*.selectContainer {*/
+/*  background-color: var(--primary-color);*/
+/*  border-radius: 0.25em;*/
+/*  color: var(--primary-text-color);*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  gap: 1em;*/
+/*  padding: 2em;*/
+/*}*/
 
-.label {
-  display: flex;
-  flex-direction: column;
-  font-weight: 600;
-}
+/*.label {*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  font-weight: 600;*/
+/*}*/
 
-.select {
-  background-color: var(--secondary-color);
-  border: none;
-  border-radius: 0.5em;
-  color: var(--primary-text-color);
-  cursor: pointer;
-  margin-top: 0.25em;
-  padding: 0.25em;
-}
+/*.select {*/
+/*  background-color: var(--secondary-color);*/
+/*  border: none;*/
+/*  border-radius: 0.5em;*/
+/*  color: var(--primary-text-color);*/
+/*  cursor: pointer;*/
+/*  margin-top: 0.25em;*/
+/*  padding: 0.25em;*/
+/*}*/
 
-.select:focus {
-  outline: none;
-}
+/*.select:focus {*/
+/*  outline: none;*/
+/*}*/
 
-.formControl {
-  display: flex;
-  justify-content: space-between;
-}
+/*.formControl {*/
+/*  display: flex;*/
+/*  justify-content: space-between;*/
+/*}*/

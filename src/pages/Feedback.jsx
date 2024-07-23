@@ -60,8 +60,11 @@ const Feedback = ({ assertions, score, history }) => {
     return `${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
   };
 
+  const defaultScore = 200;
+  const userScore = (score || score === 0) ? score : defaultScore;
+
   return (
-      <main className={style.mainContainer}>
+      <main>
         <PlayerHeader />
         <div className={style.container}>
           <section className={style.feedbackCard}>
@@ -73,7 +76,7 @@ const Feedback = ({ assertions, score, history }) => {
               {assertions}
             </p>
             <p className={style.score} data-testid="feedback-total-score">
-              {score}
+              R$ {score}
             </p>
             <p className={style.message} data-testid="feedback-info">
               Explore a Jequit: Use seus pontos para obter descontos em nossos produtos!
@@ -93,10 +96,10 @@ const Feedback = ({ assertions, score, history }) => {
               >
                 Jogar novamente
               </button>
+
               <a
                   className={`${style.button} ${style.pulsingButton}`}
-                  href="https://www.jequiti.com.br/"
-                  target="_blank"
+                  href={`${window.location.origin}/loja/?score=${userScore}`}
                   rel="noopener noreferrer"
                   data-testid="btn-ranking"
               >
@@ -121,7 +124,7 @@ const Feedback = ({ assertions, score, history }) => {
   );
 }
 
-const mapStateToProps = ({ gameReducer: { assertions, score } }) => ({
+const mapStateToProps = ({gameReducer: {assertions, score}}) => ({
   assertions,
   score,
 });

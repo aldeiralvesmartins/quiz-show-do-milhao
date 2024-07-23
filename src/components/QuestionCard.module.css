@@ -31,7 +31,7 @@ body, html {
   flex-direction: column; /* Altera para coluna */
   justify-content: center;
   align-items: center; /* Centraliza horizontalmente */
-  width: 100vw;
+  /*width: 100vw;*/
   position: relative;
   margin: 0;
 }
@@ -204,7 +204,7 @@ body, html {
     font-size: 1em; /* Ajusta o tamanho da fonte para dispositivos móveis */
     padding: 0.2em; /* Ajusta o preenchimento interno do botão */
     box-sizing: border-box; /* Garante que padding não incremente o tamanho do botão */
-    margin-left: 85px;
+    margin-left: 0;
   }
 
   .buttonCircle {
@@ -229,13 +229,18 @@ body, html {
     cursor: pointer;
     font-weight: 700;
     padding: 1em 1em;
-    width: 150px;
+    width: 100px;
     margin: 5px;
   }
   .buttonsContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-right: -85px;
+    /*margin-right: -85px;*/
   }
+  .silvioImage {
+    width: 200px; /* Ajuste o tamanho conforme necessário */
+    margin-left: 14rem; /* Move a imagem para a direita */
+  }
+
 }

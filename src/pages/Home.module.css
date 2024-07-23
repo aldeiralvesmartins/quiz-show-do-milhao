@@ -1,3 +1,6 @@
+.containerGame {
+  padding-right: -8rem;
+}
 .container {
   background-image: url('../fundo.png');
   background-size: cover;
@@ -11,9 +14,14 @@
   position: relative;
 }
 
+/* Media query para dispositivos móveis */
 @media (max-width: 768px) {
   .container {
-    flex-direction: column; /* Muda a direção para coluna em telas menores */
+    /*background-size: contain; !* Ajusta o tamanho da imagem de fundo *!*/
+    flex-direction: column; /* Ajusta a direção do flex para coluna */
+    /*padding: 30px; !* Adiciona padding para espaçamento *!*/
+    height: 780px;
+    width: 440px;
   }
 
   .logo {
@@ -22,7 +30,22 @@
   }
 
   .button {
-    width: 120px; /* Ajusta a largura do botão */
+    width: 20%; /* Ajusta a largura do botão */
     height: 40px; /* Ajusta a altura do botão */
   }
 }
+
+/* Ajustes para dispositivos móveis */
+/*@media (max-width: 768px) {*/
+/*    .container {*/
+/*        background-image: url('../bgInicio.png');*/
+/*        background-position: center center; !* Centraliza a imagem de fundo *!*/
+/*    }*/
+/*}*/
+
+/*@media (max-width: 480px) {*/
+/*    .container {*/
+/*        background-image: url('../bgInicio.png');*/
+/*        background-position: center center; !* Centraliza a imagem de fundo *!*/
+/*    }*/
+/*}*/

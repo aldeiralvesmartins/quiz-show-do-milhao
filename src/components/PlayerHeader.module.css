@@ -51,7 +51,7 @@ p {
 
 .headerScore {
   position: absolute; /* Permite o posicionamento em relação ao container */
-  right: 30px; /* Ajuste conforme necessário */
+  right: 10px; /* Ajuste conforme necessário */
   bottom: 10px; /* Ajuste conforme necessário */
 }
 

@@ -1,6 +1,6 @@
 .imageContainer {
   position: relative;
-  width: 180px; /* Ajuste para ser maior que o timer */
+  width: 160px; /* Ajuste para ser maior que o timer */
   height: 200px; /* Ajuste para ser maior que o timer */
   background-image: url('../time.png');
   background-size: cover;
@@ -78,7 +78,7 @@
 /* Media queries para dispositivos móveis */
 @media only screen and (max-width: 768px) {
   .imageContainer {
-    width: 100px; /* Ajuste para ser maior que o timer */
+    width: 90px; /* Ajuste para ser maior que o timer */
     height: 100px; /* Ajuste para ser maior que o timer */
     margin-left: 45px;
   }

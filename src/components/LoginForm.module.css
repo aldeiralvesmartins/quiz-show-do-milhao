@@ -15,11 +15,11 @@
 
   transition: background 0.3s, transform 0.2s; /* Efeito de transição */
   border-radius: 0%;
- 
+
 }
 
 .button:hover {
- 
+
 
   transform: translateY(-8px); /* Levantar o botão */
 }

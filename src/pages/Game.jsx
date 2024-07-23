@@ -5,6 +5,7 @@ import QuestionCard from '../components/QuestionCard';
 import PlayerHeader from '../components/PlayerHeader';
 import { fetchQuestions } from '../actions';
 import Loading from '../components/Loading'; // Supondo que você tenha um componente Loading
+import style from './Home.module.css';
 
 class Game extends React.Component {
     componentDidMount() {
@@ -18,7 +19,7 @@ class Game extends React.Component {
         if (error) return <p>Error: {error.message}</p>;
 
         return (
-            <div>
+            <div className={style.containerGame}>
                 <PlayerHeader />
                 <QuestionCard history={history} />
             </div>
