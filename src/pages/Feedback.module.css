@@ -98,11 +98,12 @@
 
   .container {
     height: 100%;
-    margin-top: 1em;
+    margin-top: 2em;
   }
 
   .feedbackCard {
-    padding: 0;
+
+    padding-top: 85px;
   }
 
 
