@@ -197,15 +197,14 @@ body, html {
 
   .container {
     height: 100%; /* Ajusta a altura para dispositivos móveis */
-
   }
 
   .answerButton, .nextButton {
     width: 100vw; /* Define a largura do botão como 100% da largura da tela */
     font-size: 1em; /* Ajusta o tamanho da fonte para dispositivos móveis */
-    padding: 0.2em; /* Ajusta o preenchimento interno do botão */
+    padding-left: 2px; /* Ajusta o preenchimento interno do botão */
     box-sizing: border-box; /* Garante que padding não incremente o tamanho do botão */
-    margin-left: 0;
+    /*margin-left: 0;*/
   }
 
   .buttonCircle {

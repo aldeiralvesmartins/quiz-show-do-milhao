@@ -126,7 +126,7 @@ class Timer extends React.Component {
 }
 
 const mapStateToProps = ({ timerReducer: { timer, timerStopped } }) => ({
-  timer,
+  // timer,
   timerStopped,
 });
 
