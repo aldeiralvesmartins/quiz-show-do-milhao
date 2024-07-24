@@ -228,10 +228,10 @@ body, html {
     border-radius: 8px;
     color: var(--primary-text-color);
     cursor: pointer;
-    font-weight: 200;
-    padding: 8px;
+    font-weight: 500;
+    padding: 15px 8px;
     width: 110px;
-    margin: 2px;
+    margin-left: 8px;
   }
   .buttonsContainer {
     display: flex;
