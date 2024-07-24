@@ -195,8 +195,11 @@ body, html {
     /*background-repeat: no-repeat; !* Garante que a imagem não se repita *!*/
   }
 
+
+
   .container {
     height: 100%; /* Ajusta a altura para dispositivos móveis */
+    gap: 0;
   }
 
   .answerButton, .nextButton {
@@ -204,7 +207,6 @@ body, html {
     font-size: 1em; /* Ajusta o tamanho da fonte para dispositivos móveis */
     padding-left: 2px; /* Ajusta o preenchimento interno do botão */
     box-sizing: border-box; /* Garante que padding não incremente o tamanho do botão */
-    /*margin-left: 0;*/
   }
 
   .buttonCircle {
@@ -239,7 +241,7 @@ body, html {
     margin: 0;
   }
   .silvioImage {
-    width: 150px; /* Ajuste o tamanho conforme necessário */
+    width: 110px; /* Ajuste o tamanho conforme necessário */
     margin-left: 12rem; /* Move a imagem para a direita */
   }
 

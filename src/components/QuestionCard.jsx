@@ -231,6 +231,7 @@ class QuestionCard extends React.Component {
                 className={style.silvioImage}
             />
           </section>
+          <Timer toggleDisableButtons={this.toggleDisableButtons} onTimeUp={this.handleTimeUp}/>
 
           <audio ref={this.audioCertaRespostaRef} src={certaRespostaAudio}/>
           <audio ref={this.audioDinheiroRef} src={dinheiro}/>
@@ -238,7 +239,6 @@ class QuestionCard extends React.Component {
           <audio ref={this.audioOkParouRef} src={okParouAudio}/>
           <audio ref={this.audioTempoAcabouRef} src={tempoAcabouAudio}/>
 
-          <Timer toggleDisableButtons={this.toggleDisableButtons} onTimeUp={this.handleTimeUp}/>
 
           <section className={style.questionCard}>
             {this.renderAnswers()}
