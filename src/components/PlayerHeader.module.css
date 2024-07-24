@@ -58,8 +58,9 @@ p {
 /* Media queries para dispositivos móveis */
 @media only screen and (max-width: 768px) {
   .userInfo {
-    margin: 5px; /* Ajusta o padding para dispositivos móveis */
+    margin: 0; /* Ajusta o padding para dispositivos móveis */
     left: 42%; /* Centraliza horizontalmente */
+    padding: 20px 100px;
     /*transform: translateX(-50%); !* Ajusta a posição para centralização *!*/
   }
 }
