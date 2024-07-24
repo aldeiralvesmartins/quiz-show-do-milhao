@@ -1,8 +1,6 @@
-.containerGame {
-  padding-right: -8rem;
-}
+
 .container {
-  background-image: url('../fundo.png');
+  background-image: url('../fundoDesktop.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -10,18 +8,14 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  width: 100vw;
+  /*width: 100vw;*/
   position: relative;
 }
 
 /* Media query para dispositivos móveis */
 @media (max-width: 768px) {
   .container {
-    /*background-size: contain; !* Ajusta o tamanho da imagem de fundo *!*/
-    flex-direction: column; /* Ajusta a direção do flex para coluna */
-    /*padding: 30px; !* Adiciona padding para espaçamento *!*/
-    height: 780px;
-    width: 440px;
+    background-image: url('../fundoMilion.png');
   }
 
   .logo {

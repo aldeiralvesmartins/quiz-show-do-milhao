@@ -36,3 +36,13 @@
 }
 
 
+/* Ajustes para dispositivos móveis */
+@media (max-width: 768px) {
+  .button {
+    font-weight: 600;
+    padding: 0;
+    width: 100%; /* Ajuste a largura conforme necessário */
+    height: 100%; /* Ajuste a altura conforme necessário */
+    margin-top: 80%;
+  }
+}

@@ -19,7 +19,7 @@ class Game extends React.Component {
         if (error) return <p>Error: {error.message}</p>;
 
         return (
-            <div className={style.containerGame}>
+            <div>
                 <PlayerHeader />
                 <QuestionCard history={history} />
             </div>

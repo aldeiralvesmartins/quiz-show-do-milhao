@@ -11,9 +11,9 @@
   padding: 0.5em;
 }
 
-.logo {
-  width: 250px;
-}
+/*.logo {*/
+/*  width: 250px;*/
+/*}*/
 .userInfo {
   background-image: url('../btn.png');
   background-size: cover; /* Ajusta o tamanho da imagem */
@@ -59,7 +59,7 @@ p {
 @media only screen and (max-width: 768px) {
   .userInfo {
     margin: 5px; /* Ajusta o padding para dispositivos móveis */
-    left: 95%; /* Centraliza horizontalmente */
-    transform: translateX(-50%); /* Ajusta a posição para centralização */
+    left: 42%; /* Centraliza horizontalmente */
+    /*transform: translateX(-50%); !* Ajusta a posição para centralização *!*/
   }
 }

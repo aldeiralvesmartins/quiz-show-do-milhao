@@ -95,9 +95,18 @@
 
 /* Media queries para dispositivos móveis */
 @media only screen and (max-width: 768px) {
+
   .container {
-    margin-right: -85px;
+    height: 100%;
+    margin-top: 1em;
   }
+
+  .feedbackCard {
+    padding: 0;
+  }
+
+
+
 
   .feedbackCard {
     background-image: url('../jequit2.png');

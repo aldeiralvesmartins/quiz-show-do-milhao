@@ -1,6 +1,6 @@
 .imageContainer {
   position: relative;
-  width: 160px; /* Ajuste para ser maior que o timer */
+  width: 150px; /* Ajuste para ser maior que o timer */
   height: 200px; /* Ajuste para ser maior que o timer */
   background-image: url('../time.png');
   background-size: cover;
@@ -9,7 +9,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  margin: -20px;
+  margin: 0px;
 }
 
 .timerContainer {
@@ -78,9 +78,10 @@
 /* Media queries para dispositivos móveis */
 @media only screen and (max-width: 768px) {
   .imageContainer {
-    width: 90px; /* Ajuste para ser maior que o timer */
-    height: 100px; /* Ajuste para ser maior que o timer */
-    margin-left: 45px;
+    width: 70px; /* Ajuste para ser maior que o timer */
+    height: 180px; /* Ajuste para ser maior que o timer */
+    margin: 0;
+
   }
 
   .timerContainer {
